@@ -4,7 +4,7 @@ import { user } from "../store/user";
 </script>
 
 <template>
-  <div class="fixed inset-x-2 inset-y-5 bg-blue-900">
+  <div class="fixed md:inset-x-15 inset-x-2 inset-y-5 bg-blue-900">
     <img
       class="w-full h-full opacity-50"
       src="https://images.edexlive.com/uploads/user/imagelibrary/2019/5/22/w600X390/msrit-campus.jpg"

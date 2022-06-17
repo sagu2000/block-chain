@@ -1,6 +1,9 @@
 <template>
   <v-modal v-model="$attrs" class="z-20" @click.self="$router.replace('/')">
-    <form @submit.prevent="login()" class="w-xs shadow space-y-5 bg-indigo-300  overflow-y-auto max-h-sm">
+    <form
+      @submit.prevent="login()"
+      class="w-xs shadow space-y-5 bg-indigo-300 overflow-y-auto max-h-sm"
+    >
       <div class="px-2 text-2xl">
         <fa-icon @click="$router.replace('/')" icon="arrow-left" class="icon" />
       </div>
@@ -84,7 +87,9 @@ const goBack = () => {
 async function login() {
   try {
     await user.signIn({ ...form });
-    goBack();
+    if (user.state.role == "Admin") return router.replace("/admin");
+    if (user.state.role == "User") return router.replace("/user");
+    router.replace("/");
   } catch (err) {
     postError.value = err;
   }

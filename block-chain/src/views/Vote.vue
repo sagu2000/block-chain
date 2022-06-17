@@ -1,25 +1,29 @@
 <template>
-  <div v-if="user.state.token" class="flex justify-center items-center">
-    <div class="bg-gray-400 p-4 space-y-2">
-      <div class="text-center m-2 text-blue-600 bg-pink-400">User Details</div>
-      <div>Name: {{ user.state.name }}</div>
-      <div>Age: {{ user.state.age }}</div>
-      <div>MobileNumber: {{ user.state.mobileNumber }}</div>
-      <div>AadharNumber: {{ user.state.aadharNumber }}</div>
-      <div>DOB: {{ user.state.dob }}</div>
-      <div class="text-center p-4">
-        <button @click="logout" class="btn btn-red">logout</button>
+  <div class="max-w-md mx-auto">
+    <div
+      class="text-center text-white text-2xl font-semibold bg-indigo-400 p-2"
+    >
+      Candidates
+    </div>
+    <div
+      v-for="c in candidates.state.candidates"
+      :key="c._id"
+      class="p-4 flex justify-between items-center"
+    >
+      <candidate-vue :candidate="c"></candidate-vue>
+      <div>
+        <button @click="votes.create(c._id)" class="btn btn-green">vote</button>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { useRouter } from "vue-router";
-import { user } from "../store/user";
-const router = useRouter();
+import { onMounted } from "vue";
+import CandidateVue from "../components/Candidate.vue";
+import { candidates } from "../store/candidates";
+import { votes } from "../store/votes";
 
-async function logout() {
-  await user.signOut();
-  router.replace("/");
-}
+onMounted(() => {
+  candidates.getCandidates();
+});
 </script>

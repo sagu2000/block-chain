@@ -79,27 +79,27 @@ router.post(
 );
 
 // user update
-router.put(
-  "/update",
-  validateUpdateForm, //validate and copy body to updateUser
-  authenticateJWT, //get user with token
-  updateUser, //updateUser wit provided fields
-  signJwt, //refresh token
-  (req, res) => {
-    console.log("user signup", req.user);
-    const { mobileNumber, name, _id, token, role, aadharNumber, age, dob } =
-      req.user;
-    res.send({
-      mobileNumber,
-      name,
-      _id,
-      token,
-      role,
-      aadharNumber,
-      age,
-      dob,
-    });
-  }
-);
+// router.put(
+//   "/update",
+//   validateUpdateForm, //validate and copy body to updateUser
+//   authenticateJWT, //get user with token
+//   updateUser, //updateUser wit provided fields
+//   signJwt, //refresh token
+//   (req, res) => {
+//     console.log("user signup", req.user);
+//     const { mobileNumber, name, _id, token, role, aadharNumber, age, dob } =
+//       req.user;
+//     res.send({
+//       mobileNumber,
+//       name,
+//       _id,
+//       token,
+//       role,
+//       aadharNumber,
+//       age,
+//       dob,
+//     });
+//   }
+// );
 
 module.exports = router;

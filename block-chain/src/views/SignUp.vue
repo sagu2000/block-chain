@@ -121,7 +121,9 @@ const goBack = () => {
 async function signup() {
   try {
     await user.signUp({ ...form });
-    goBack();
+    if (user.state.role == "Admin") return router.replace("/admin");
+    if (user.state.role == "User") return router.replace("/user");
+    router.replace("/");
   } catch (error) {
     postError.value = error;
   }

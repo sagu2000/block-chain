@@ -25,11 +25,11 @@ import { user } from "../store/user";
           <div class="text-center">
             <RouterLink to="/about" class="btn btn-blue">about</RouterLink>
           </div>
-          <div v-if="user.state.token" class="text-center">
-            <RouterLink to="/vote" class="btn btn-green">vote</RouterLink>
+          <div  class="text-center">
+            <RouterLink to="/user" class="btn btn-green">user</RouterLink>
           </div>
-          <div v-else class="text-center">
-            <RouterLink to="/signin" class="btn btn-green">signin</RouterLink>
+          <div v-if="user.state.role == 'Admin'" class="text-center">
+            <RouterLink to="/admin" class="btn btn-pink">Admin</RouterLink>
           </div>
         </div>
       </div>

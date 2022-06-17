@@ -128,7 +128,7 @@ class User {
       });
       const result = await response.json();
       if (!response.ok) {
-        this.log("user update error");
+        this.log("get user error");
         this.log(result.message);
         loadingValue.value = result.message;
       }

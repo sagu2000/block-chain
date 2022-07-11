@@ -18,6 +18,7 @@ import { user } from "../store/user";
           <p>Project On " Block-Chain Based E-Voting System ".</p>
           <p>Guided by DR. Rajendra Prasad P</p>
           <p>This is Created by MSRIT Students</p>
+          <!-- <p>Sagar Pagad, Tejas G C, Rohith Gowda R M, Krisha  P Kattimani</p> -->
         </div>
         <div class="flex justify-center space-x-2">
           <div class="text-center">
